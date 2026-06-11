@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="EgoGuide: Egocentric Guidance for Efficient Robot-Free Demonstration Collection and Learning">
+  <meta name="keywords" content="EgoGuide, UMI, Robot Learning, Imitation Learning, Egocentric Vision, Data Curation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EgoGuide: Egocentric Guidance for Efficient Robot-Free Demonstration Collection and Learning</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S4CXNMS5WV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-S4CXNMS5WV');
+  </script>
+
+  <style>
+    :root {
+      --theme-color: #26747a;
+      --theme-color-dark: #1f5f64;
+      --accent-color: #d87341;
+      --soft-bg: #f7faf9;
+      --ink: #1f2a2e;
+      --muted: #5f6f76;
+      --line: #dbe6e4;
+    }
+
+    body {
+      color: var(--ink);
+      font-family: 'Noto Sans', sans-serif;
+      background: #ffffff;
+    }
+
+    .hero {
+      background:
+        linear-gradient(180deg, rgba(247, 250, 249, 0.98), rgba(255, 255, 255, 1));
+    }
+
+    .publication-title,
+    .publication-authors {
+      font-family: 'Google Sans', sans-serif;
+    }
+
+    .publication-title {
+      font-weight: 800;
+      line-height: 1.08;
+    }
+
+    .publication-authors {
+      margin-top: 1rem;
+    }
+
+    .author-block {
+      display: inline-block;
+      margin: 0.18rem 0.25rem;
+    }
+
+    .publication-links {
+      margin-top: 1.75rem;
+    }
+
+    .link-block {
+      display: inline-block;
+      margin: 0.35rem;
+    }
+
+    .button.is-dark {
+      background-color: var(--theme-color);
+      border-color: transparent;
+    }
+
+    .button.is-dark:hover {
+      background-color: var(--theme-color-dark);
+    }
+
+    .button.is-dark.is-disabled {
+      background-color: #aab5b7;
+      pointer-events: none;
+    }
+
+    .section {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    .section-title {
+      font-family: 'Google Sans', sans-serif;
+      font-weight: 800;
+      margin-bottom: 1.25rem;
+    }
+
+    .teaser-image,
+    .figure-image,
+    .demo-frame {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 10px 28px rgba(31, 42, 46, 0.08);
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .teaser-image {
+      background: #ffffff;
+    }
+
+    .content p {
+      line-height: 1.7;
+    }
+
+    .tldr-band {
+      background: var(--soft-bg);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .point-card,
+    .metric-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      height: 100%;
+      padding: 1.25rem;
+      background: #ffffff;
+    }
+
+    .point-label {
+      align-items: center;
+      color: var(--theme-color-dark);
+      display: flex;
+      font-weight: 800;
+      gap: 0.5rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .point-card strong {
+      color: var(--ink);
+    }
+
+    .metric-number {
+      color: var(--accent-color);
+      display: block;
+      font-family: 'Google Sans', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .metric-card p {
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .demo-video {
+      margin-top: 1rem;
+      overflow: hidden;
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 28px rgba(31, 42, 46, 0.08);
+      background: #101820;
+    }
+
+    .demo-video video {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+
+    .bibtex pre {
+      background-color: #f3f7f6;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: #263238;
+      padding: 1rem;
+      white-space: pre-wrap;
+    }
+
+    .footer {
+      background: #f7faf9;
+      padding: 2rem 1.5rem;
+    }
+
+    @media screen and (max-width: 768px) {
+      .publication-title {
+        font-size: 2.05rem;
+      }
+
+      .section {
+        padding-top: 2.25rem;
+        padding-bottom: 2.25rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            EgoGuide: Egocentric Guidance for Efficient Robot-Free Demonstration Collection and Learning
+          </h1>
+          <!-- <h3 class="subtitle is-4">CoRL 2026</h3> -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Yue Xu<sup>1</sup>,</span>
+            <span class="author-block">Mingtao Nie<sup>1</sup>,</span>
+            <span class="author-block">Tianle Li<sup>1</sup>,</span>
+            <span class="author-block">Hong Li<sup>1</sup>,</span>
+            <span class="author-block">Yibo Luo<sup>1</sup>,</span>
+            <span class="author-block">Siyuan Huang<sup>3</sup>,</span>
+            <span class="author-block">Yong-Lu Li<sup>1,2*</sup></span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Shanghai Jiao Tong University,</span>
+            <span class="author-block"><sup>2</sup>Shanghai Innovation Institute,</span>
+            <span class="author-block"><sup>3</sup>Beijing Institute for General Artificial Intelligence</span>
+          </div>
+
+          <div class="publication-links">
+            <span class="link-block">
+              <a href="paper.pdf" class="external-link button is-normal is-rounded is-dark"
+                 onclick="trackResource('paper_pdf')">
+                <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                <span>Paper</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="#demo-video" class="external-link button is-normal is-rounded is-dark"
+                 onclick="trackResource('demo_video')">
+                <span class="icon"><i class="fas fa-play"></i></span>
+                <span>Demo</span>
+              </a>
+            </span>
+            <!-- <span class="link-block">
+              <a href="#BibTeX" class="external-link button is-normal is-rounded is-dark"
+                 onclick="trackResource('bibtex')">
+                <span class="icon"><i class="fas fa-quote-right"></i></span>
+                <span>BibTeX</span>
+              </a>
+            </span> -->
+            <span class="link-block">
+              <a class="button is-normal is-rounded is-dark is-disabled" aria-disabled="true">
+                <span class="icon"><i class="fab fa-github"></i></span>
+                <span>Code Coming Later</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a class="button is-normal is-rounded is-dark is-disabled" aria-disabled="true">
+                <span class="icon"><i class="fas fa-database"></i></span>
+                <span>Assembly Guide Coming Later</span>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <img src="static/images/egoguide-overview.png"
+         alt="Overview of EgoGuide online data curation, hardware, and gated egocentric residual policy"
+         class="teaser-image">
+    <h2 class="subtitle has-text-centered" style="margin-top: 1.5rem;">
+      EgoGuide improves UMI-style robot-free data collection with AR-based coverage guidance and learns to use egocentric context through a gated residual policy.
+    </h2>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 section-title">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Robot learning from real-world demonstrations is currently constrained by data scaling. Universal Manipulation Interface (UMI) provides an efficient robot-free data collection interface, yet current UMI-style pipelines often collect redundant demonstrations and lack global scene context. To improve data efficiency, we present EgoGuide, a collection interface that records synchronized wrist and head/egocentric observations and couples them with online visual-geometric data quality guidance. We also introduce a Gated Egocentric Residual Policy for robust learning from a viewpoint-varying egocentric camera, allowing head/egocentric context to correct ambiguous local observations while preserving stable wrist-view control. Real-world experiments show that EgoGuide reduces the required number of data episodes and improves data efficiency. The residual policy further improves robustness under visual occlusion.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section tldr-band">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 section-title has-text-centered">TL;DR</h2>
+    <div class="columns is-variable is-4">
+      <div class="column">
+        <div class="point-card">
+          <div class="point-label"><i class="fas fa-compass"></i><span># 1: Guided Data Collection</span></div>
+          <p>
+            EgoGuide tells the collector, inside AR, whether the current wrist view, ego view, and wrist pose are already covered by the dataset. In plain terms: it nudges people away from recording another near-duplicate demo and toward useful new states.
+          </p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="point-card">
+          <div class="point-label"><i class="fas fa-code-branch"></i><span># 2: Gated Ego-residual Policy</span></div>
+          <p>
+            GERP keeps the wrist camera as the stable default policy, then lets the egocentric camera make a gated correction when the local wrist view is ambiguous, occluded, or missing broader task context.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-variable is-4">
+      <div class="column">
+        <div class="metric-card has-text-centered">
+          <span class="metric-number">10% -> 50%</span>
+          <p>EgoGuide raises success on pepper sorting (200 demos).</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="metric-card has-text-centered">
+          <span class="metric-number">2X Speed</span>
+          <p>Pepper Sorting reaches comparable success using only half as many demonstrations.</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="metric-card has-text-centered">
+          <span class="metric-number">+5% to +10%</span>
+          <p>GERP improves Pepper Sorting success and task progress over wrist-only policies under harder perception.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column">
+        <h2 class="title is-3 section-title has-text-centered">System</h2>
+        <img src="static/images/egoguide-system.png"
+             alt="EgoGuide hardware and online data curation system"
+             class="figure-image">
+        <div class="content" style="margin-top: 1rem;">
+          <p>
+            EgoGuide-UMI synchronizes a wrist camera, wrist pose, gripper state, head/egocentric image, and head pose. The workstation estimates data coverage online and sends simple feedback back to the AR interface before recording.
+          </p>
+        </div>
+      </div>
+      <div class="column">
+        <h2 class="title is-3 section-title has-text-centered">Results</h2>
+        <img src="static/images/egoguide-results.png"
+             alt="Data scaling comparison between unguided collection and EgoGuide-guided collection"
+             class="figure-image">
+        <div class="content" style="margin-top: 1rem;">
+          <p>
+            Across standard UMI-style tasks and challenging occlusion cases, EgoGuide-guided data scales better than unguided collection, while the gated residual policy uses egocentric context without replacing the stable wrist-view controller.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="demo-video">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 section-title has-text-centered">Demos</h2>
+    <div class="demo-video">
+      <video controls playsinline preload="metadata">
+        <source src="static/videos/egoguide_demo_1080p.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <p class="note has-text-centered">
+      The demonstrations are collected and evaluated in <strong>different scenes across more than 100 km away</strong>, to show the policy generalization and robustness.
+    </p>
+  </div>
+</section>
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content bibtex">
+    <h2 class="title is-3 section-title has-text-centered">BibTeX</h2>
+    <pre><code>@inproceedings{xu2026egoguide,
+  title     = {EgoGuide: Egocentric Guidance for Efficient Robot-Free Demonstration Collection and Learning},
+  author    = {Xu, Yue and Nie, Mingtao and Li, Tianle and Li, Hong and Luo, Yibo and Huang, Siyuan and Li, Yong-Lu},
+  booktitle = {Conference on Robot Learning (CoRL)},
+  year      = {2026}
+}</code></pre>
+  </div>
+</section> -->
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <p>
+            This website template is adapted from the open-source code of the <a href="https://nerfies.github.io/">Nerfies</a> project.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function trackResource(resourceName) {
+  if (typeof gtag === 'function') {
+    gtag('event', 'resource_click', {
+      resource_name: resourceName,
+      event_category: 'Resources',
+      transport_type: 'beacon'
+    });
+  }
+}
+</script>
+
+</body>
+</html>
